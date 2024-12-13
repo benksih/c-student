@@ -22,8 +22,7 @@ int compare1(int a)
     FILE *fp=fopen("studentinfo.dat","rb");
     if(fp==NULL)
     {
-        printf("studentinfo.dat not found\n");
-        exit(1);
+        return 0;
     }
     while(fread(&s1,sizeof(struct student),1,fp))
     {
@@ -41,8 +40,7 @@ int compare2(int a)
     FILE *fp=fopen("teacherinfo.dat","rb");
     if(fp==NULL)
     {
-        printf("teacherinfo.dat not found\n");
-        exit(1);
+        return 0;
     }
     while(fread(&s1,sizeof(struct teacher),1,fp))
     {
@@ -60,8 +58,7 @@ int comparestudent(int a,char *b)
     FILE *stud=fopen("studentinfo.dat","rb");
     if(stud==NULL)
     {
-        printf("studentinfo.dat not found\n");
-        exit(1);
+        return 0;
     }
     while(fread(&s1,sizeof(struct student),1,stud))
     {
@@ -79,8 +76,7 @@ int compareteacher(int a,char *b)
     FILE *teach=fopen("teacherinfo.dat","rb");
     if(teach==NULL)
     {
-        printf("teacherinfo.dat not found\n");
-        exit(1);
+        return 0;
     }
     while(fread(&t1,sizeof(struct teacher),1,teach))
     {
@@ -92,23 +88,23 @@ int compareteacher(int a,char *b)
     fclose(teach);
     return 0;
 }
-int login()
+int main()
 {
     FILE *stud, *teach;
     printf("***********************\n");
-    printf("*      ×¢²áÇë°´1       *\n");
-    printf("*      µÇÂ¼Çë°´2       *\n");
+    printf("*      æ³¨å†Œè¯·æŒ‰1       *\n");
+    printf("*      ç™»å½•è¯·æŒ‰2       *\n");
     printf("***********************\n");
     int a;
     scanf("%d",&a);
-    getchar(); // ÎüÊÕ»»ĞĞ·û
+    getchar(); // å¸æ”¶æ¢è¡Œç¬¦
     system("cls");
     if(a==1)
     {
         int c;
         printf("****************************\n");
-        printf("*      Ñ§Éú×¢²áÇë°´1       *\n");
-        printf("*      ½ÌÊ¦×¢²áÇë°´2       *\n");
+        printf("*      å­¦ç”Ÿæ³¨å†Œè¯·æŒ‰1       *\n");
+        printf("*      æ•™å¸ˆæ³¨å†Œè¯·æŒ‰2       *\n");
         printf("****************************\n");
         scanf("%d",&c);
         getchar();
@@ -116,16 +112,16 @@ int login()
         {
             struct student s1;
             system("cls");
-            printf("ÒòÎªÄúÑ¡Ôñ×¢²á£¬×¢²áºó×Ô¶¯Ìø×ªµ½µÇÂ¼½çÃæ£»°´ÏÂ»Ø³µ¼üÒÔ¼ÌĞø");
+            printf("å› ä¸ºæ‚¨é€‰æ‹©æ³¨å†Œï¼Œæ³¨å†Œåè‡ªåŠ¨è·³è½¬åˆ°ç™»å½•ç•Œé¢ï¼›æŒ‰ä¸‹å›è½¦é”®ä»¥ç»§ç»­");
             getchar();
             system("cls");
             again:
-            printf("ÕËºÅ£º\n");
+            printf("è´¦å·ï¼š\n");
             scanf("%d",&s1.stuNo);
             getchar();
             if(compare1(s1.stuNo)==0)
             {
-                printf("ÃÜÂë£º\n");
+                printf("å¯†ç ï¼š\n");
             scanf("%s",&s1.code[0]);
             getchar();
             stud=fopen("studentinfo.dat","a");
@@ -136,7 +132,7 @@ int login()
             fwrite(&s1,sizeof(struct student),1,stud);
             fclose(stud);
             system("cls");
-                printf("×¢²á³É¹¦.¼´½«Ìø×ªÖÁµÇÂ¼Ò³Ãæ\n");
+                printf("æ³¨å†ŒæˆåŠŸ.å³å°†è·³è½¬è‡³ç™»å½•é¡µé¢\n");
                 Sleep(2000);
                 system("cls");
             goto ok;
@@ -144,7 +140,7 @@ int login()
             else
             {
                 system("cls");
-                printf("ÕËºÅÒÑ´æÔÚ£¬ÇëÖØĞÂÊäÈë\n");
+                printf("è´¦å·å·²å­˜åœ¨ï¼Œè¯·é‡æ–°è¾“å…¥\n");
                 Sleep(2000);
                 system("cls");
                 goto again;
@@ -153,17 +149,17 @@ int login()
         else if(c==2)
         {
             system("cls");
-            printf("ÒòÎªÄúÑ¡Ôñ×¢²á£¬×¢²áºó×Ô¶¯Ìø×ªµ½µÇÂ¼½çÃæ£»°´ÏÂ»Ø³µ¼üÒÔ¼ÌĞø");
+            printf("å› ä¸ºæ‚¨é€‰æ‹©æ³¨å†Œï¼Œæ³¨å†Œåè‡ªåŠ¨è·³è½¬åˆ°ç™»å½•ç•Œé¢ï¼›æŒ‰ä¸‹å›è½¦é”®ä»¥ç»§ç»­");
             getchar();
             struct teacher s1;
             system("cls");
             also:
-            printf("ÕËºÅ£º\n");
+            printf("è´¦å·ï¼š\n");
             scanf("%d",&s1.teaNo);
             getchar();
             if(compare2(s1.teaNo)==0)
             {
-              printf("ÃÜÂë\n");
+              printf("å¯†ç \n");
             scanf("%s",&s1.code[0]);
             getchar();
             teach=fopen("teacherinfo.dat","a");
@@ -174,7 +170,7 @@ int login()
             fwrite(&s1,sizeof(struct teacher),1,teach);
             fclose(teach);
             system("cls");
-                printf("×¢²á³É¹¦.¼´½«Ìø×ªÖÁµÇÂ¼Ò³Ãæ\n");
+                printf("æ³¨å†ŒæˆåŠŸ.å³å°†è·³è½¬è‡³ç™»å½•é¡µé¢\n");
                 Sleep(2000);
                 system("cls");
             goto ok;
@@ -182,7 +178,7 @@ int login()
             else
             {
                 system("cls");
-                printf("ÕËºÅÒÑ´æÔÚ£¬ÇëÖØĞÂÊäÈë\n");
+                printf("è´¦å·å·²å­˜åœ¨ï¼Œè¯·é‡æ–°è¾“å…¥\n");
                 Sleep(2000);
                 system("cls");
                 goto also;
@@ -198,8 +194,8 @@ int login()
     {
         ok:
         printf("****************************\n");
-        printf("*      Ñ§ÉúµÇÂ¼Çë°´1       *\n");
-        printf("*      ½ÌÊ¦µÇÂ¼Çë°´2       *\n");
+        printf("*      å­¦ç”Ÿç™»å½•è¯·æŒ‰1       *\n");
+        printf("*      æ•™å¸ˆç™»å½•è¯·æŒ‰2       *\n");
         printf("****************************\n");
         int d;
         scanf("%d",&d);
@@ -207,11 +203,11 @@ int login()
         system("cls");
         if(d==1)
         {
-            printf("ÕËºÅ£º\n");
+            printf("è´¦å·ï¼š\n");
             int e;
             scanf("%d",&e);
             getchar();
-            printf("ÃÜÂë£º\n");
+            printf("å¯†ç ï¼š\n");
             char f[20];
             fgets(f,20,stdin);
             size_t len = strlen(f);
@@ -222,21 +218,21 @@ int login()
             if(comparestudent(e,f))
             {
                 system("cls");
-                printf("****µÇÂ¼³É¹¦****\n");
+                printf("****ç™»å½•æˆåŠŸ****\n");
             }
             else
             {
                 system("cls");
-                printf("****µÇÂ¼Ê§°Ü****\n");
+                printf("****ç™»å½•å¤±è´¥****\n");
             }
         }
         else if(d==2)
         {
-            printf("ÕËºÅ£º\n");
+            printf("è´¦å·ï¼š\n");
             int g;
             scanf("%d",&g);
             getchar();
-            printf("ÃÜÂë£º\n");
+            printf("å¯†ç ï¼š\n");
             char h[20];
             fgets(h,20,stdin);
             size_t len = strlen(h);
@@ -247,13 +243,13 @@ int login()
             if(compareteacher(g,h))
             {
                 system("cls");
-                printf("µÇÂ¼³É¹¦\n");
+                printf("ç™»å½•æˆåŠŸ\n");
                 getchar();
             }
             else
             {
                 system("cls");
-                printf("µÇÂ¼Ê§°Ü\n");
+                printf("ç™»å½•å¤±è´¥\n");
                 getchar();
             }
         }
