@@ -1,0 +1,3 @@
+C:/Users/benksih/CLionProjects/c-student2/cmake-build-debug/CMakeFiles/c_student2.dir
+C:/Users/benksih/CLionProjects/c-student2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/benksih/CLionProjects/c-student2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

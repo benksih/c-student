@@ -92,23 +92,23 @@ int compareteacher(int a,char *b)
     fclose(teach);
     return 0;
 }
-int main()
+int login()
 {
     FILE *stud, *teach;
     printf("***********************\n");
-    printf("*      æ³¨å†Œè¯·æŒ‰1       *\n");
-    printf("*      ç™»å½•è¯·æŒ‰2       *\n");
+    printf("*      ×¢²áÇë°´1       *\n");
+    printf("*      µÇÂ¼Çë°´2       *\n");
     printf("***********************\n");
     int a;
     scanf("%d",&a);
-    getchar(); // å¸æ”¶æ¢è¡Œç¬¦
+    getchar(); // ÎüÊÕ»»ĞĞ·û
     system("cls");
     if(a==1)
     {
         int c;
         printf("****************************\n");
-        printf("*      å­¦ç”Ÿæ³¨å†Œè¯·æŒ‰1       *\n");
-        printf("*      æ•™å¸ˆæ³¨å†Œè¯·æŒ‰2       *\n");
+        printf("*      Ñ§Éú×¢²áÇë°´1       *\n");
+        printf("*      ½ÌÊ¦×¢²áÇë°´2       *\n");
         printf("****************************\n");
         scanf("%d",&c);
         getchar();
@@ -116,16 +116,16 @@ int main()
         {
             struct student s1;
             system("cls");
-            printf("å› ä¸ºæ‚¨é€‰æ‹©æ³¨å†Œï¼Œæ³¨å†Œåè‡ªåŠ¨è·³è½¬åˆ°ç™»å½•ç•Œé¢ï¼›æŒ‰ä¸‹å›è½¦é”®ä»¥ç»§ç»­");
+            printf("ÒòÎªÄúÑ¡Ôñ×¢²á£¬×¢²áºó×Ô¶¯Ìø×ªµ½µÇÂ¼½çÃæ£»°´ÏÂ»Ø³µ¼üÒÔ¼ÌĞø");
             getchar();
             system("cls");
             again:
-            printf("è´¦å·ï¼š\n");
+            printf("ÕËºÅ£º\n");
             scanf("%d",&s1.stuNo);
             getchar();
             if(compare1(s1.stuNo)==0)
             {
-                printf("å¯†ç ï¼š\n");
+                printf("ÃÜÂë£º\n");
             scanf("%s",&s1.code[0]);
             getchar();
             stud=fopen("studentinfo.dat","a");
@@ -136,7 +136,7 @@ int main()
             fwrite(&s1,sizeof(struct student),1,stud);
             fclose(stud);
             system("cls");
-                printf("æ³¨å†ŒæˆåŠŸ.å³å°†è·³è½¬è‡³ç™»å½•é¡µé¢\n");
+                printf("×¢²á³É¹¦.¼´½«Ìø×ªÖÁµÇÂ¼Ò³Ãæ\n");
                 Sleep(2000);
                 system("cls");
             goto ok;
@@ -144,7 +144,7 @@ int main()
             else
             {
                 system("cls");
-                printf("è´¦å·å·²å­˜åœ¨ï¼Œè¯·é‡æ–°è¾“å…¥\n");
+                printf("ÕËºÅÒÑ´æÔÚ£¬ÇëÖØĞÂÊäÈë\n");
                 Sleep(2000);
                 system("cls");
                 goto again;
@@ -153,17 +153,17 @@ int main()
         else if(c==2)
         {
             system("cls");
-            printf("å› ä¸ºæ‚¨é€‰æ‹©æ³¨å†Œï¼Œæ³¨å†Œåè‡ªåŠ¨è·³è½¬åˆ°ç™»å½•ç•Œé¢ï¼›æŒ‰ä¸‹å›è½¦é”®ä»¥ç»§ç»­");
+            printf("ÒòÎªÄúÑ¡Ôñ×¢²á£¬×¢²áºó×Ô¶¯Ìø×ªµ½µÇÂ¼½çÃæ£»°´ÏÂ»Ø³µ¼üÒÔ¼ÌĞø");
             getchar();
             struct teacher s1;
             system("cls");
             also:
-            printf("è´¦å·ï¼š\n");
+            printf("ÕËºÅ£º\n");
             scanf("%d",&s1.teaNo);
             getchar();
             if(compare2(s1.teaNo)==0)
             {
-              printf("å¯†ç \n");
+              printf("ÃÜÂë\n");
             scanf("%s",&s1.code[0]);
             getchar();
             teach=fopen("teacherinfo.dat","a");
@@ -174,7 +174,7 @@ int main()
             fwrite(&s1,sizeof(struct teacher),1,teach);
             fclose(teach);
             system("cls");
-                printf("æ³¨å†ŒæˆåŠŸ.å³å°†è·³è½¬è‡³ç™»å½•é¡µé¢\n");
+                printf("×¢²á³É¹¦.¼´½«Ìø×ªÖÁµÇÂ¼Ò³Ãæ\n");
                 Sleep(2000);
                 system("cls");
             goto ok;
@@ -182,7 +182,7 @@ int main()
             else
             {
                 system("cls");
-                printf("è´¦å·å·²å­˜åœ¨ï¼Œè¯·é‡æ–°è¾“å…¥\n");
+                printf("ÕËºÅÒÑ´æÔÚ£¬ÇëÖØĞÂÊäÈë\n");
                 Sleep(2000);
                 system("cls");
                 goto also;
@@ -198,8 +198,8 @@ int main()
     {
         ok:
         printf("****************************\n");
-        printf("*      å­¦ç”Ÿç™»å½•è¯·æŒ‰1       *\n");
-        printf("*      æ•™å¸ˆç™»å½•è¯·æŒ‰2       *\n");
+        printf("*      Ñ§ÉúµÇÂ¼Çë°´1       *\n");
+        printf("*      ½ÌÊ¦µÇÂ¼Çë°´2       *\n");
         printf("****************************\n");
         int d;
         scanf("%d",&d);
@@ -207,11 +207,11 @@ int main()
         system("cls");
         if(d==1)
         {
-            printf("è´¦å·ï¼š\n");
+            printf("ÕËºÅ£º\n");
             int e;
             scanf("%d",&e);
             getchar();
-            printf("å¯†ç ï¼š\n");
+            printf("ÃÜÂë£º\n");
             char f[20];
             fgets(f,20,stdin);
             size_t len = strlen(f);
@@ -222,21 +222,21 @@ int main()
             if(comparestudent(e,f))
             {
                 system("cls");
-                printf("****ç™»å½•æˆåŠŸ****\n");
+                printf("****µÇÂ¼³É¹¦****\n");
             }
             else
             {
                 system("cls");
-                printf("****ç™»å½•å¤±è´¥****\n");
+                printf("****µÇÂ¼Ê§°Ü****\n");
             }
         }
         else if(d==2)
         {
-            printf("è´¦å·ï¼š\n");
+            printf("ÕËºÅ£º\n");
             int g;
             scanf("%d",&g);
             getchar();
-            printf("å¯†ç ï¼š\n");
+            printf("ÃÜÂë£º\n");
             char h[20];
             fgets(h,20,stdin);
             size_t len = strlen(h);
@@ -247,13 +247,13 @@ int main()
             if(compareteacher(g,h))
             {
                 system("cls");
-                printf("ç™»å½•æˆåŠŸ\n");
+                printf("µÇÂ¼³É¹¦\n");
                 getchar();
             }
             else
             {
                 system("cls");
-                printf("ç™»å½•å¤±è´¥\n");
+                printf("µÇÂ¼Ê§°Ü\n");
                 getchar();
             }
         }
