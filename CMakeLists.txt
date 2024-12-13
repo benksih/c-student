@@ -3,4 +3,4 @@ project(c_student2 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(c_student2 main.c)
+add_executable(c_student main.c)
