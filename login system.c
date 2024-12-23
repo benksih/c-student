@@ -11,6 +11,7 @@ struct student {
     int stuNo;
     char courseCode[10];
     char code[20];
+    int num;
 };
 struct teacher {
     int teaNo;
@@ -88,12 +89,12 @@ int compareteacher(int a,char *b)
     fclose(teach);
     return 0;
 }
-int main()
+int login(int *No,int *style)
 {
-    FILE *stud, *teach;
+    FILE *stud =NULL, *teach=NULL;
     printf("***********************\n");
-    printf("*      注册请按1       *\n");
-    printf("*      登录请按2       *\n");
+    printf("*      注册请按1      *\n");
+    printf("*      登录请按2      *\n");
     printf("***********************\n");
     int a;
     scanf("%d",&a);
@@ -102,10 +103,10 @@ int main()
     if(a==1)
     {
         int c;
-        printf("****************************\n");
-        printf("*      学生注册请按1       *\n");
-        printf("*      教师注册请按2       *\n");
-        printf("****************************\n");
+        printf("***************************\n");
+        printf("*      学生注册请按1      *\n");
+        printf("*      教师注册请按2      *\n");
+        printf("***************************\n");
         scanf("%d",&c);
         getchar();
         if(c==1)
@@ -128,7 +129,7 @@ int main()
             if(stud==NULL) {
                 printf("studentinfo.dat not found\n");
                 return 1;
-            }
+            }s1.num=0;
             fwrite(&s1,sizeof(struct student),1,stud);
             fclose(stud);
             system("cls");
@@ -219,6 +220,8 @@ int main()
             {
                 system("cls");
                 printf("****登录成功****\n");
+                *style=0;
+                *No=e;
             }
             else
             {
@@ -243,14 +246,14 @@ int main()
             if(compareteacher(g,h))
             {
                 system("cls");
-                printf("登录成功\n");
-                getchar();
+                printf("***登录成功***\n");
+                *style=1;
+                *No=g;
             }
             else
             {
                 system("cls");
-                printf("登录失败\n");
-                getchar();
+                printf("***登录失败***\n");
             }
         }
         else
@@ -264,7 +267,5 @@ int main()
         getchar();
         getchar();
     }
-    fclose(stud);
-    fclose(teach);
     return 0;
 }
